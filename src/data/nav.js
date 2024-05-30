@@ -7,7 +7,7 @@ export default [
 		classList: ['show-on-mobile'],
 	},
 	{
-		title: 'Your Party',
+		title: 'Plan Your Party',
 		href: '/your-party',
 		mobile: 'end',
 		desktop: 'end',
@@ -18,7 +18,6 @@ export default [
 		href: '/booking',
 		desktop: 'end',
 		mobile: 'end',
-		classList: ['show-on-mobile'],
 	},
 	{
 		title: 'Contact Us',
