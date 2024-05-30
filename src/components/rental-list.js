@@ -99,7 +99,7 @@ rentalList.style = scss`
 
 			> img {
 				aspect-ratio: 4/3;
-				object-fit: cover;
+				object-fit: contain;
 			}
 
 			> div {

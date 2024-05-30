@@ -47,6 +47,14 @@ rentalCards.init = () => {
 rentalCards.style = scss`
 	.rental-cards {
 		.card {
+			> img {
+				aspect-ratio: 4 / 3;
+				object-fit: contain;
+
+				&[src*=png] {
+					transform: scale(.8);
+				}
+			}
 			> .actions {
 				align-items: center;
 				display: flex;
