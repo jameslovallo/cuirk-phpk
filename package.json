@@ -1,0 +1,12 @@
+{
+	"name": "bernadette-atuahene",
+	"type": "module",
+	"dependencies": {
+		"cuirk": "^0.0.69"
+	},
+	"scripts": {
+		"dev": "cuirk dev",
+		"build": "cuirk build",
+		"nuke": "rm -rf node_modules dist && npm i && npm run dev"
+	}
+}
