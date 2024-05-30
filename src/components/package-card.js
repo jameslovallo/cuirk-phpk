@@ -46,11 +46,14 @@ packageCard.init = () => {
 
 packageCard.style = scss`
 	.package-card {
+		--c-primary: white;
+		--c-primary-color: black;
 		margin-bottom: 1rem;
 
 		> .header {
 			align-items: center;
-			border-bottom: 4px solid var(--c-primary);
+			background: #697e9b linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+			color: white;
 			display: grid;
 			grid-template-columns: 150px 1fr;
 			padding: 1rem 1rem 1rem 0;
@@ -65,18 +68,6 @@ packageCard.style = scss`
 
 				> h3 {
 					margin-top: 0;
-				}
-
-				.button:first-of-type {
-					&:before {
-						content: '';
-						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
-						bottom: 0;
-						background: linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%)
-					}
 				}
 
 				.button:last-of-type {
@@ -113,20 +104,9 @@ packageCard.style = scss`
 		}
 
 		&.gold {
-			--c-primary: #ffc107;
-			--c-primary-color: black;
-
 			> .header {
-				background: #ffc10733;
-			}
-		}
-
-		&.silver {
-			--c-primary: #697e9b;
-			--c-primary-color: white;
-
-			> .header {
-				background: #697e9b33;
+				background: #ffc107 linear-gradient(to bottom right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0) 100%);
+				color: black;
 			}
 		}
 
