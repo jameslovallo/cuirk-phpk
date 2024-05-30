@@ -2,7 +2,6 @@ export const packages = [
 	{
 		title: 'Gold Bear',
 		id: 'gold',
-		price: 699.99,
 		img: '/src/images/home/bear.svg',
 		description: `
 			<h4>Your Choice of Bounce House</h4>
@@ -60,17 +59,17 @@ export const packages = [
 export const bouncers = [
 	{
 		img: '/src/images/rentals/magic castle.webp',
-		title: 'Magic Castle',
+		title: 'King Castle',
 		description:
-			'Appealing to both boys and girls of all ages. Recommended for younger children and toddlers.',
-		price: '200',
-		dimensions: "13' x 13'",
+			'The vibrancy of this bounce house is like no other, “where joy knows no bounds” Great for any event!',
+		price: '225',
+		dimensions: "15' x 15'",
 	},
 	{
-		img: '/src/images/rentals/princess castle.webp',
-		title: 'Princess Castle',
+		img: '/src/images/rentals/razzle dazzle.webp',
+		title: 'Razzle Dazzle Princess Castle Plus',
 		description: 'A perfect birthday bouncer at an unbeatable value.',
-		price: '200',
+		price: '225',
 		dimensions: "15' x 15'",
 	},
 	{
@@ -107,7 +106,7 @@ export const bouncers = [
 		title: 'Jump & Slide Bouncer (Dry)',
 		description:
 			'Bounce house plus slide with a basketball hoop on the inside.',
-		price: '225',
+		price: '250',
 		dimensions: "13' x 18' x 14'",
 	},
 	{
@@ -151,7 +150,6 @@ export const bouncers = [
 		title: 'Young & Wild Combo',
 		description:
 			'You’ll delight as you watch them zoom down with a big smile on their face!',
-		price: 'CALL FOR PRICING',
 		dimensions: "23' x 24' x 14'",
 	},
 	{
@@ -175,7 +173,6 @@ export const bouncers = [
 		title: 'Rival Arena',
 		description:
 			'Take things up a notch and have a party like no other. Watch the video!',
-		price: '400',
 		dimensions: "15' x 15' x 13'",
 	},
 	{
@@ -183,7 +180,6 @@ export const bouncers = [
 		title: 'Hyper Kids Arena',
 		description:
 			'This distinctive bounce house takes the exercise and competition to 11. Watch the video!',
-		price: '350',
 		dimensions: "14' x 14' x 9.5'",
 	},
 	{
@@ -191,7 +187,6 @@ export const bouncers = [
 		title: 'Shoot & Score Connect Four',
 		description:
 			'This amazing Shoot & Score challenge is a fun and exciting way to play inflatable Connect 4.',
-		price: '150',
 		dimensions: "9' x 11' x 10'",
 	},
 	{
@@ -207,12 +202,6 @@ export const bouncers = [
 		price: '225',
 		dimensions: "15' x 15'",
 	},
-	{
-		img: '/src/images/rentals/razzle dazzle.webp',
-		title: 'Razzle Dazzle Princess Castle Plus',
-		price: '225',
-		dimensions: "15' x 15'",
-	},
 ]
 
 export const extras = [
@@ -221,8 +210,6 @@ export const extras = [
 		title: 'Generator',
 		description:
 			'For outdoor parties that are set up far away from electrical outlets.',
-		price: '65',
-		dimensions: '65',
 	},
 	{
 		img: '/src/images/rentals/cotton candy.webp',
@@ -230,7 +217,6 @@ export const extras = [
 		description:
 			'Bring the carnival to the party with the cotton candy machine.',
 		price: '100',
-		dimensions: '100',
 	},
 	{
 		img: '/src/images/rentals/sno cone.webp',
@@ -238,7 +224,6 @@ export const extras = [
 		description:
 			'This industrial sno-cone machine comes with sno-cone cups and 2 kid flavors.',
 		price: '100',
-		dimensions: '100',
 	},
 	{
 		img: '/src/images/rentals/popcorn.webp',
@@ -246,14 +231,12 @@ export const extras = [
 		description:
 			'Perfect for all occasions and includes bags, seasoning, kernels and popping oil.',
 		price: '100',
-		dimensions: '100',
 	},
 	{
 		img: '/src/images/rentals/hot dogs.webp',
 		title: 'Hot Dog Machine',
 		description: 'This industrial hot-dog maker makes grilling a breeze!',
 		price: '65',
-		dimensions: '65',
 	},
 	{
 		img: '/src/images/rentals/nachos.webp',
@@ -261,19 +244,16 @@ export const extras = [
 		description:
 			'Does it get any better than an all you can eat nacho station? We think not.',
 		price: '150',
-		dimensions: '150',
 	},
 	{
 		img: '/src/images/rentals/super soaker.webp',
 		title: '16 Super Soakers',
 		description: 'We bring 16 Super Soakers and lead battles up to 8 vs. 8!',
 		price: '25',
-		dimensions: '25',
 	},
 	{
 		img: '/src/images/rentals/face painting.webp',
 		title: 'Face Painting',
 		description: 'Great for all ages.',
-		price: 'Call for Pricing',
 	},
 ]

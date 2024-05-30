@@ -1,5 +1,5 @@
 import { html, loop, scss, when } from 'cuirk'
-import { button, card, cardActions, cardBody, grid, icon } from './index.js'
+import { card, cardActions, cardBody, grid, rentalButtons } from './index.js'
 
 const rentalCard = ({ img, title, description, price, dimensions }) =>
 	card({
@@ -8,16 +8,7 @@ const rentalCard = ({ img, title, description, price, dimensions }) =>
 			cardBody({ title, subtitle: description }),
 			cardActions({
 				children: [
-					button({
-						children: icon({ name: 'CartPlus' }) + '$' + price,
-						shape: 'rounded',
-						variant: 'ghost',
-					}),
-					button({
-						children: icon({ name: 'CartRemove' }) + 'Remove',
-						shape: 'rounded',
-						variant: 'ghost',
-					}),
+					rentalButtons({ title, price, variant: 'ghost' }),
 					when(dimensions, html`<span>${dimensions}</span>`),
 				],
 			}),
@@ -69,23 +60,6 @@ rentalCards.style = scss`
 
 				> span {
 					margin-right: .75rem;
-				}
-			}
-
-			&.in-party {
-				--c-primary: #f00;
-				--c-primary-1: #f001;
-				--c-primary-2: #f002;
-				--c-primary-3: #f003;
-				
-				> .actions {
-					> .button:nth-child(1) {
-						display: none;
-					}
-
-					> .button:nth-child(2) {
-						display: inline-flex;
-					}
 				}
 			}
 		}

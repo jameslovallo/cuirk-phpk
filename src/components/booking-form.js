@@ -45,13 +45,14 @@ export const bookingForm = () => html`
 			<textarea name="requests" required></textarea>
 		</label>
 		<h2>Rental Agreement</h2>
+		<p>
+			By submitting this form, you acknowledge that you have read, understood,
+			and agreed to the following rental agreement.
+		</p>
 		${accordion([
 			{ title: 'Safety, Policies, and Conditions', children: rentalAgreement },
 		])}
-		<label>
-			<input type="checkbox" name="agreement" required />
-			<span>I have read and understand the Rental Agreement.</span>
-		</label>
+		<br />
 		<br />
 		${button({
 			children: icon({ name: 'Send' }) + 'Submit',
@@ -63,12 +64,10 @@ export const bookingForm = () => html`
 
 bookingForm.style = scss`
 	form {
-		display: grid;
-		gap: 1rem;
-
 		label {
 			display: grid;
 			gap: 0.5rem;
+			margin-bottom: 1.5rem;
 
 			&:has([type=checkbox]) {
 				align-items: center;

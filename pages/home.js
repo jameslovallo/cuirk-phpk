@@ -48,6 +48,10 @@ ${contactForm()}
 	snappy-carousel::part(next) {
 		color: var(--c-primary);
 	}
+
+	snappy-carousel p {
+		margin: 0;
+	}
 </style>
 
 <script type="module" defer>
