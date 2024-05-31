@@ -43,6 +43,7 @@ homeGallery.style = scss`
 		}
 
 		img {
+                        aspect-ratio: 1;
 			border-radius: 1.5rem;
 		}
 	}
