@@ -40,6 +40,9 @@ ${rentalCards(extras)}
 </div>
 
 <style>
+	nav [href="/your-party"] {
+		color: var(--c-primary);
+	}
 	.floating {
 		bottom: 2rem;
 		position: fixed;

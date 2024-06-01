@@ -11,4 +11,10 @@ export const body = md`
 When you are finished building [your party](/your-party) you will see your estimate below. To book your party, please complete the form below and we will get back to you as soon as possible.
 
 ${bookingForm()}
+
+<style>
+	nav [href="/booking"] {
+		color: var(--c-primary);
+	}
+</style>
 `
