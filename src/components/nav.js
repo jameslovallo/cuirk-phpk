@@ -3,13 +3,17 @@ import { icon } from './index.js'
 
 export const nav = () => html`
 	<nav>
-		<a href="/">Home</a>
+		<div>
+			<a href="/">Home</a>
+		</div>
 		<div>
 			<a href="/your-party">${icon({ name: 'Castle' })} Plan Your Party</a>
 			${icon({ name: 'ChevronRight' })}
 			<a href="/booking">${icon({ name: 'CalendarStar' })} Book It</a>
 		</div>
-		<a href="/contact">Contact Us</a>
+		<div>
+			<a href="/contact">Contact</a>
+		</div>
 	</nav>
 `
 
@@ -22,9 +26,9 @@ nav.style = scss`
 	nav {
 		align-items: center;
 		background: var(--c-primary-50);
-		display: flex;
+		display: grid;
 		gap: .5rem;
-		justify-content: space-between;
+		grid-template-columns: 1fr auto 1fr;
 		padding: .5rem;
 
 		@media (min-width: 600px) {	
@@ -47,7 +51,8 @@ nav.style = scss`
 			}
 		}
 
-		> a {
+		> div:nth-child(1) a,
+		> div:nth-child(3) a {
 			border-radius: .25rem;
 
 			&:hover,
@@ -61,7 +66,17 @@ nav.style = scss`
 			}
 		}
 
-		> div {
+		> div:nth-child(1),
+		> div:nth-child(3) {
+			align-items: center;
+			display: flex;
+		}
+
+		> div:nth-child(3) {
+			justify-content: flex-end;
+		}
+
+		> div:nth-child(2) {
 			align-items: center;
 			background: var(--c-primary-2);
 			border-radius: 3rem;
