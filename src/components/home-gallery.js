@@ -24,7 +24,7 @@ homeGallery.style = scss`
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		margin: 3rem 0;
+		margin-top: 1.5rem;
 
 		> div {
 			display: grid;
