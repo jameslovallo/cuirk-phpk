@@ -16,5 +16,10 @@ ${bookingForm()}
 	nav [href="/booking"] {
 		color: var(--c-primary);
 	}
+
+	.cap [href="/booking"] {
+		background: rgba(255, 255, 255, 0.05);
+		border-bottom-color: white;
+	}
 </style>
 `

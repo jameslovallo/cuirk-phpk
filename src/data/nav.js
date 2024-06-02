@@ -4,14 +4,12 @@ export default [
 		href: '/',
 		desktop: 'start',
 		mobile: 'center',
-		classList: ['show-on-mobile'],
 	},
 	{
 		title: 'Plan Your Party',
 		href: '/your-party',
 		mobile: 'end',
 		desktop: 'end',
-		classList: ['show-on-mobile'],
 	},
 	{
 		title: 'Booking',

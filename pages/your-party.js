@@ -1,10 +1,5 @@
 import { loop, md } from 'cuirk'
-import {
-	button,
-	icon,
-	packageCard,
-	rentalCards,
-} from '../src/components/index.js'
+import { packageCard, rentalCards } from '../src/components/index.js'
 import { bouncers, extras, packages } from '../src/data/rentals.js'
 
 export const meta = {
@@ -30,28 +25,14 @@ ${rentalCards(bouncers)}
 
 ${rentalCards(extras)}
 
-<div class="floating">
-	${button({
-		children: icon({ name: 'CalendarStar' }),
-		href: '/booking',
-		shape: 'circle',
-		size: 'lg',
-	})}
-</div>
-
 <style>
 	nav [href="/your-party"] {
 		color: var(--c-primary);
 	}
-	.floating {
-		bottom: 2rem;
-		position: fixed;
-		right: 2rem;
-	}
-	.floating .button {
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-		height: 4rem;
-		width: 4rem;
+
+	.cap [href="/your-party"] {
+		background: rgba(255, 255, 255, 0.05);
+		border-bottom-color: white;
 	}
 </style>
 `
