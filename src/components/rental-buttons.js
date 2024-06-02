@@ -58,7 +58,7 @@ rentalButtons.init = () => {
 		addButton.addEventListener('click', (e) => {
 			e.preventDefault()
 			const inCart = getCart()
-			inCart.push(title)
+			!inCart.includes(title) && inCart.push(title)
 			localStorage.setItem('inCart', JSON.stringify(inCart))
 			item.dataset.inCart = true
 		})

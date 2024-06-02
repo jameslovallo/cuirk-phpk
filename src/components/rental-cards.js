@@ -21,29 +21,6 @@ export const rentalCards = (children) => html`
 	</div>
 `
 
-rentalCards.init = () => {
-	document.querySelectorAll('.rental-cards .card').forEach((card) => {
-		const name = card.querySelector('h3').textContent
-		const add = card.querySelector('.button:first-of-type')
-		const remove = card.querySelector('.button:last-of-type')
-		if (getCart().includes(name)) card.classList.add('in-party')
-
-		add.addEventListener('click', () => {
-			const inCart = getCart()
-			inCart.push(name)
-			localStorage.setItem('inCart', JSON.stringify(inCart))
-			card.classList.add('in-party')
-		})
-
-		remove.addEventListener('click', () => {
-			const inCart = getCart()
-			inCart.splice(inCart.indexOf(name), 1)
-			localStorage.setItem('inCart', JSON.stringify(inCart))
-			card.classList.remove('in-party')
-		})
-	})
-}
-
 rentalCards.style = scss`
 	.rental-cards {
 		.card {

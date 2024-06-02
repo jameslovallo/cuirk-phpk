@@ -23,21 +23,23 @@ export const rentalList = () => html`
 
 rentalList.init = () => {
 	const rentalList = document.querySelector('.rental-list')
-	const rentalEstimate = document.querySelector('.rental-estimate')
-	const textarea = document.querySelector('textarea[name="rentals"]')
-	const removeButton = document.querySelector('#removeButton').innerHTML
 
-	const renderRentalList = () => {
-		let estimate = 0
-		rentalList.innerHTML = ''
-		rentalEstimate.textContent = ''
-		textarea.value = ''
+	if (rentalList) {
+		const rentalEstimate = document.querySelector('.rental-estimate')
+		const textarea = document.querySelector('textarea[name="rentals"]')
+		const removeButton = document.querySelector('#removeButton').innerHTML
 
-		import('/src/data/rentals.js').then(({ packages, bouncers, extras }) => {
-			rentalList.innerHTML = [...packages, ...bouncers, ...extras]
-				.filter(({ title }) => getCart().includes(title))
-				.map(
-					({ img, title, price }) => `
+		const renderRentalList = () => {
+			let estimate = 0
+			rentalList.innerHTML = ''
+			rentalEstimate.textContent = ''
+			textarea.value = ''
+
+			import('/src/data/rentals.js').then(({ packages, bouncers, extras }) => {
+				rentalList.innerHTML = [...packages, ...bouncers, ...extras]
+					.filter(({ title }) => getCart().includes(title))
+					.map(
+						({ img, title, price }) => `
 						<li class="surface" data-title="${title}" data-price="${price}">
 							<img src="${img}" />
 							<div>
@@ -49,47 +51,48 @@ rentalList.init = () => {
 							</div>
 						</li>
 					`
-				)
-				.join('')
+					)
+					.join('')
 
-			if (!rentalList.innerHTML) {
-				rentalList.innerHTML = `
+				if (!rentalList.innerHTML) {
+					rentalList.innerHTML = `
 					<li>
 						After you add some items from the <a href="/your-party">Plan Your Party</a> page they will appear here.
 					</li>
 				`
-			}
+				}
 
-			const items = rentalList.querySelectorAll('li')
+				const items = rentalList.querySelectorAll('li')
 
-			items.forEach((item) => {
-				const { title, price } = item.dataset
+				items.forEach((item) => {
+					const { title, price } = item.dataset
 
-				textarea.value += `${title}: ${price}\n`
+					textarea.value += `${title}: ${price}\n`
 
-				if (price !== 'undefined' && typeof estimate === 'number') {
-					estimate += Number(price)
-				} else estimate = 'Call for Pricing'
+					if (price !== 'undefined' && typeof estimate === 'number') {
+						estimate += Number(price)
+					} else estimate = 'Call for Pricing'
 
-				const removeItemButton = item.querySelector('button')
-				if (removeItemButton) {
-					removeItemButton.addEventListener('click', () => {
-						const inCart = getCart()
-						inCart.splice(inCart.indexOf(title), 1)
-						localStorage.setItem('inCart', JSON.stringify(inCart))
-						renderRentalList()
-					})
+					const removeItemButton = item.querySelector('button')
+					if (removeItemButton) {
+						removeItemButton.addEventListener('click', () => {
+							const inCart = getCart()
+							inCart.splice(inCart.indexOf(title), 1)
+							localStorage.setItem('inCart', JSON.stringify(inCart))
+							renderRentalList()
+						})
+					}
+				})
+
+				if (estimate) {
+					rentalEstimate.textContent =
+						typeof estimate === 'number' ? '$' + estimate : estimate
 				}
 			})
+		}
 
-			if (estimate) {
-				rentalEstimate.textContent =
-					typeof estimate === 'number' ? '$' + estimate : estimate
-			}
-		})
+		renderRentalList()
 	}
-
-	renderRentalList()
 }
 
 rentalList.style = scss`

@@ -26,7 +26,8 @@ footer.style = scss`
 		display: flex;
 		gap: 0.25rem;
 		justify-content: center;
-		position: sticky;
+		position: fixed;
+		width: 100%;
 		z-index: 100;
 
 		@media (min-width: 600px) {
@@ -39,21 +40,23 @@ footer.style = scss`
 			border-top: 2px solid transparent;
 			display: flex;
 			gap: 0.5rem;
-			height: 3rem;
+			height: 4rem;
 			padding: 0 .5rem;
 			text-decoration: none;
 		}
 	}
 	footer {
-		background: var(--footer, black);
-		color: var(--footer-color, white);
-		display: grid;
-		gap: 1.5rem;
-		justify-content: center;
-		padding: 2rem 1rem;
-		position: sticky;
+		padding: 0 0 5rem;
 		text-align: center;
 		top: 100vh;
+		z-index: 200;
+
+		@media (min-width: 600px) {
+			background: var(--footer, black);
+			color: var(--footer-color, white);
+			padding: 2rem 1rem;
+			position: sticky;
+		}
 		
 		> div {
 			display: flex;
