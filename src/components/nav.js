@@ -88,11 +88,15 @@ nav.style = scss`
 			align-items: center;
 			background: var(--c-primary-2);
 			border-radius: 3rem;
-			display: none;
+			display: flex;
 			padding: 0 .5rem;
 
-			@media (min-width: 600px) {
-				display: flex;
+			> * {
+				display: none;
+
+				@media (min-width: 600px) {
+					display: flex;
+				}
 			}
 		}
 	}

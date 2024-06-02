@@ -19,14 +19,15 @@ footer.style = scss`
 	.cap {
 		align-items: center;
 		background: var(--c-primary);
-		border-top-left-radius: 2rem;
-		border-top-right-radius: 2rem;
+		border-top-left-radius: 1.5rem;
+		border-top-right-radius: 1.5rem;
 		bottom: 0;
 		color: white;
 		display: flex;
 		gap: 0.25rem;
 		justify-content: center;
 		position: sticky;
+		z-index: 100;
 
 		@media (min-width: 600px) {
 			display: none;
