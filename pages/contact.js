@@ -7,9 +7,9 @@ export const meta = {
 }
 
 export const body = md`
-# Contact
+# Contact Us
 
-## Social Media
+## Phone & Email
 
 ${linkList(social)}
 
