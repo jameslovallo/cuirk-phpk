@@ -23,6 +23,11 @@ nav.style = scss`
 			padding-top: 56px;
 		}
 	}
+  
+  @keyframes shadow-in {
+    to { box-shadow: 0 5px 10px #0006 }
+  }
+
 	nav {
 		align-items: center;
 		background: var(--c-primary-50);
@@ -32,6 +37,9 @@ nav.style = scss`
 		padding: .5rem;
 
 		@media (min-width: 600px) {	
+			animation: shadow-in auto linear both;
+			animation-range: 0% 100px;
+			animation-timeline: scroll();
 			position: fixed;
 			top: 0;
 			width: 100%;
