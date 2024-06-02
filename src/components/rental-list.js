@@ -19,7 +19,6 @@ export const rentalList = () => html`
 		></small>
 	</h2>
 	<ul class="rental-list"></ul>
-	<textarea name="rentals" hidden></textarea>
 `
 
 rentalList.init = () => {
@@ -29,16 +28,17 @@ rentalList.init = () => {
 	const removeButton = document.querySelector('#removeButton').innerHTML
 
 	const renderRentalList = () => {
+		let estimate = 0
 		rentalList.innerHTML = ''
+		rentalEstimate.textContent = ''
+		textarea.value = ''
 
 		import('/src/data/rentals.js').then(({ packages, bouncers, extras }) => {
-			let estimate = 0
-
-			;[...packages, ...bouncers, ...extras]
+			rentalList.innerHTML = [...packages, ...bouncers, ...extras]
 				.filter(({ title }) => getCart().includes(title))
-				.forEach(({ img, title, price }) => {
-					rentalList.innerHTML += `
-						<li class="surface" data-title="${title}">
+				.map(
+					({ img, title, price }) => `
+						<li class="surface" data-title="${title}" data-price="${price}">
 							<img src="${img}" />
 							<div>
 								<h3>${title}</h3>
@@ -49,23 +49,8 @@ rentalList.init = () => {
 							</div>
 						</li>
 					`
-
-					const item = rentalList.querySelector(`[data-title="${title}"]`)
-					const itemRemoveButton = item.querySelector('.button')
-
-					itemRemoveButton.addEventListener('click', () => {
-						const inCart = getCart()
-						inCart.splice(inCart.indexOf(title), 1)
-						localStorage.setItem('inCart', JSON.stringify(inCart))
-						renderRentalList()
-					})
-
-					if (estimate !== 'Call for Pricing' && price) {
-						estimate += price
-					} else estimate = 'Call for Pricing'
-
-					textarea.value += `${title}\n`
-				})
+				)
+				.join('')
 
 			if (!rentalList.innerHTML) {
 				rentalList.innerHTML = `
@@ -75,7 +60,32 @@ rentalList.init = () => {
 				`
 			}
 
-			if (estimate) rentalEstimate.innerHTML = `${estimate}`
+			const items = rentalList.querySelectorAll('li')
+
+			items.forEach((item) => {
+				const { title, price } = item.dataset
+
+				textarea.value += `${title}: ${price}\n`
+
+				if (price !== 'undefined' && typeof estimate === 'number') {
+					estimate += Number(price)
+				} else estimate = 'Call for Pricing'
+
+				const removeItemButton = item.querySelector('button')
+				if (removeItemButton) {
+					removeItemButton.addEventListener('click', () => {
+						const inCart = getCart()
+						inCart.splice(inCart.indexOf(title), 1)
+						localStorage.setItem('inCart', JSON.stringify(inCart))
+						renderRentalList()
+					})
+				}
+			})
+
+			if (estimate) {
+				rentalEstimate.textContent =
+					typeof estimate === 'number' ? '$' + estimate : estimate
+			}
 		})
 	}
 

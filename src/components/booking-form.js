@@ -1,6 +1,6 @@
 import { html, scss } from 'cuirk'
 import rentalAgreement from '../data/rental-agreement.js'
-import { accordion, button, grid, icon, rentalList } from './index.js'
+import { accordion, button, grid, icon } from './index.js'
 
 export const bookingForm = () => html`
 	<form method="POST" netlify netlify-honeypot="bot-field" class="booking-form">
@@ -9,7 +9,7 @@ export const bookingForm = () => html`
 				Don’t fill this out if you’re human: <input name="bot-field" />
 			</label>
 		</p>
-		${rentalList()}
+		<textarea name="rentals" hidden></textarea>
 		<h2>Contact Information</h2>
 		${grid({
 			children: [
