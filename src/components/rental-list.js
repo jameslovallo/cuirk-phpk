@@ -35,11 +35,17 @@ rentalList.init = () => {
 			rentalEstimate.textContent = ''
 			textarea.value = ''
 
-			import('/src/data/rentals.js').then(({ packages, bouncers, extras }) => {
-				rentalList.innerHTML = [...packages, ...bouncers, ...extras]
-					.filter(({ title }) => getCart().includes(title))
-					.map(
-						({ img, title, price }) => `
+			import('/src/data/rentals.js').then(
+				({ packages, bouncers, interactive, extras }) => {
+					rentalList.innerHTML = [
+						...packages,
+						...bouncers,
+						...interactive,
+						...extras,
+					]
+						.filter(({ title }) => getCart().includes(title))
+						.map(
+							({ img, title, price }) => `
 						<li class="surface" data-title="${title}" data-price="${price}">
 							<img src="${img}" />
 							<div>
@@ -51,44 +57,45 @@ rentalList.init = () => {
 							</div>
 						</li>
 					`
-					)
-					.join('')
+						)
+						.join('')
 
-				if (!rentalList.innerHTML) {
-					rentalList.innerHTML = `
+					if (!rentalList.innerHTML) {
+						rentalList.innerHTML = `
 					<li>
 						After you add some items from the <a href="/your-party">Plan Your Party</a> page they will appear here.
 					</li>
 				`
-				}
-
-				const items = rentalList.querySelectorAll('li')
-
-				items.forEach((item) => {
-					const { title, price } = item.dataset
-
-					textarea.value += `${title}: ${price}\n`
-
-					if (price !== 'undefined' && typeof estimate === 'number') {
-						estimate += Number(price)
-					} else estimate = 'Call for Pricing'
-
-					const removeItemButton = item.querySelector('button')
-					if (removeItemButton) {
-						removeItemButton.addEventListener('click', () => {
-							const inCart = getCart()
-							inCart.splice(inCart.indexOf(title), 1)
-							localStorage.setItem('inCart', JSON.stringify(inCart))
-							renderRentalList()
-						})
 					}
-				})
 
-				if (estimate) {
-					rentalEstimate.textContent =
-						typeof estimate === 'number' ? '$' + estimate : estimate
+					const items = rentalList.querySelectorAll('li')
+
+					items.forEach((item) => {
+						const { title, price } = item.dataset
+
+						textarea.value += `${title}: ${price}\n`
+
+						if (price !== 'undefined' && typeof estimate === 'number') {
+							estimate += Number(price)
+						} else estimate = 'Call for Pricing'
+
+						const removeItemButton = item.querySelector('button')
+						if (removeItemButton) {
+							removeItemButton.addEventListener('click', () => {
+								const inCart = getCart()
+								inCart.splice(inCart.indexOf(title), 1)
+								localStorage.setItem('inCart', JSON.stringify(inCart))
+								renderRentalList()
+							})
+						}
+					})
+
+					if (estimate) {
+						rentalEstimate.textContent =
+							typeof estimate === 'number' ? '$' + estimate : estimate
+					}
 				}
-			})
+			)
 		}
 
 		renderRentalList()

@@ -53,6 +53,10 @@ packageCard.style = scss`
 					margin-top: 0;
 				}
 			}
+
+			> p {
+				opacity: 0.75;
+			}
 		}
 
 		&.gold {

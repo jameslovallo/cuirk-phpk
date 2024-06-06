@@ -1,9 +1,11 @@
+const html = (v) => v
+
 export const packages = [
 	{
 		title: 'Gold Bear',
 		id: 'gold',
 		img: '/src/images/home/bear.svg',
-		description: `
+		description: html`
 			<h4>Your Choice of Bounce House</h4>
 			<p><small>(Excluding Rival Arena)</small></p>
 			<h4>Pick 1</h4>
@@ -22,11 +24,11 @@ export const packages = [
 		`,
 	},
 	{
-		title: 'Silver Bear',
+		title: 'Summer Special',
 		id: 'silver',
-		price: 399.99,
+		price: 499.99,
 		img: '/src/images/home/bear.svg',
-		description: `
+		description: html`
 			<h4>Your Choice of Bounce House</h4>
 			<p>
 				<small>
@@ -46,7 +48,7 @@ export const packages = [
 		id: 'silver twister',
 		price: 399.99,
 		img: '/src/images/home/twister.png',
-		description: `
+		description: html`
 			<h4>Features</h4>
 			<ul>
 				<li>Inflatable Twister Board</li>
@@ -54,14 +56,13 @@ export const packages = [
 			</ul>
 		`,
 	},
-].sort(({ title: a }, { title: b }) => a > b || -(a < b))
+]
 
 export const bouncers = [
 	{
-		img: '/src/images/rentals/king castle.png',
-		title: 'King Castle',
-		description:
-			'The vibrancy of this bounce house is like no other, “where joy knows no bounds” Great for any event!',
+		img: '/src/images/rentals/magic castle plus.png',
+		title: 'Magic Castle Plus',
+		description: 'Four spire towers and large interior jumping area.',
 		price: '225',
 		dimensions: "15' x 15'",
 	},
@@ -71,6 +72,20 @@ export const bouncers = [
 		description: 'A perfect birthday bouncer at an unbeatable value.',
 		price: '225',
 		dimensions: "15' x 15'",
+	},
+	{
+		img: '/src/images/rentals/c rex.png',
+		title: 'C Rex Bounce House',
+		price: '225',
+		dimensions: "15' x 15'",
+	},
+	{
+		img: '/src/images/rentals/candy castle.png',
+		title: 'Candy Castle',
+		description:
+			'Live the adventure of Kings and Queens. Ask about Candy Land balloon packages!',
+		price: '225',
+		dimensions: "15' x 15' x 17'",
 	},
 	{
 		img: '/src/images/rentals/frozen.png',
@@ -87,17 +102,10 @@ export const bouncers = [
 		dimensions: "15' x 15'",
 	},
 	{
-		img: '/src/images/rentals/candy castle.png',
-		title: 'Candy Castle',
+		img: '/src/images/rentals/king castle.png',
+		title: 'King Castle',
 		description:
-			'Live the adventure of Kings and Queens. Ask about Candy Land balloon packages!',
-		price: '225',
-		dimensions: "15' x 15' x 17'",
-	},
-	{
-		img: '/src/images/rentals/magic castle plus.png',
-		title: 'Magic Castle Plus',
-		description: 'Four spire towers and large interior jumping area.',
+			'The vibrancy of this bounce house is like no other, “where joy knows no bounds” Great for any event!',
 		price: '225',
 		dimensions: "15' x 15'",
 	},
@@ -146,13 +154,6 @@ export const bouncers = [
 		dimensions: "36' x 15' x 15'",
 	},
 	{
-		img: '/src/images/rentals/young and wild.png',
-		title: 'Young & Wild Combo',
-		description:
-			'You’ll delight as you watch them zoom down with a big smile on their face!',
-		dimensions: "23' x 24' x 14'",
-	},
-	{
 		img: '/src/images/rentals/giant slide.png',
 		title: 'Giant Slide',
 		description:
@@ -161,13 +162,38 @@ export const bouncers = [
 		dimensions: "17'",
 	},
 	{
+		img: '/src/images/rentals/young and wild.png',
+		title: 'Young & Wild Combo',
+		description:
+			'You’ll delight as you watch them zoom down with a big smile on their face!',
+		dimensions: "23' x 24' x 14'",
+	},
+	{
 		img: '/src/images/rentals/blue wave.png',
 		title: 'Blue Wave Water Slide',
 		description:
 			'This is a perfect option for any event where folks want to cool off and have some adrenaline pumping fun.',
-		price: '300',
+		price: '325',
 		dimensions: "25' x 9' x 15'",
 	},
+	{
+		img: '/src/images/rentals/bluestar cay.png',
+		title: 'Bluestar Cay Water Slide',
+		description:
+			'A perfect option for any event where folks want to cool off and have some adrenaline-pumping fun.',
+		price: 325,
+		dimensions: '25 x 9 x 15',
+	},
+	{
+		img: '/src/images/rentals/crash out.png',
+		title: 'Crash Out Obstacle Course',
+		description:
+			'Squeeze through tunnels, jump over barriers, slip underneath bars, and push your way past any obstacle that comes your way while trying to move as fast as possible.',
+		dimensions: '47 x 11 x 14',
+	},
+]
+
+export const interactive = [
 	{
 		img: '/src/images/rentals/rival arena.png',
 		title: 'Rival Arena',
@@ -183,13 +209,6 @@ export const bouncers = [
 		dimensions: "14' x 14' x 9.5'",
 	},
 	{
-		img: '/src/images/rentals/connect 8.png',
-		title: 'Shoot & Score Connect Four',
-		description:
-			'This amazing Shoot & Score challenge is a fun and exciting way to play inflatable Connect 4.',
-		dimensions: "9' x 11' x 10'",
-	},
-	{
 		img: '/src/images/rentals/twister.png',
 		title: 'Party Kids Twister',
 		description: 'For adults and kids.',
@@ -197,10 +216,11 @@ export const bouncers = [
 		dimensions: '150',
 	},
 	{
-		img: '/src/images/rentals/c rex.png',
-		title: 'C Rex Bounce House',
-		price: '225',
-		dimensions: "15' x 15'",
+		img: '/src/images/rentals/connect 8.png',
+		title: 'Shoot & Score Connect Four',
+		description:
+			'This amazing Shoot & Score challenge is a fun and exciting way to play inflatable Connect 4.',
+		dimensions: "9' x 11' x 10'",
 	},
 	{
 		img: '/src/images/rentals/home run.png',
@@ -210,28 +230,13 @@ export const bouncers = [
 		dimensions: '10 x 12.5 x 10.5',
 	},
 	{
-		img: '/src/images/rentals/crash out.png',
-		title: 'Crash Out Obstacle Course',
-		description:
-			'Squeeze through tunnels, jump over barriers, slip underneath bars, and push your way past any obstacle that comes your way while trying to move as fast as possible.',
-		dimensions: '47 x 11 x 14',
-	},
-	{
-		img: '/src/images/rentals/bluestar cay.png',
-		title: 'Bluestar Cay Water Slide',
-		description:
-			'A perfect option for any event where folks want to cool off and have some adrenaline-pumping fun.',
-		price: 325,
-		dimensions: '25 x 9 x 15',
-	},
-	{
 		img: '/src/images/rentals/super bowl.png',
 		title: 'Super Bowl Toss',
 		description:
 			'The Superbowl Toss is an exciting inflatable game that lets players young and old show off their passing game.',
 		dimensions: '10 x 10 x 11',
 	},
-].sort(({ title: a }, { title: b }) => a > b || -(a < b))
+]
 
 export const extras = [
 	{
