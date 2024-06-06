@@ -245,6 +245,11 @@ export const extras = [
 		description: 'Great for all ages.',
 	},
 	{
+		img: '/src/images/rentals/tables and chairs.webp',
+		title: 'Tables and Chairs',
+		description: 'Folding white rectangular or circular tables and chairs.',
+	},
+	{
 		img: '/src/images/rentals/super soaker.png',
 		title: '16 Super Soakers',
 		description: 'We bring 16 Super Soakers and lead battles up to 8 vs. 8!',
