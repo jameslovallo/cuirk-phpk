@@ -45,10 +45,10 @@ ${rentalCards(extras)}
 		color: var(--c-primary);
 	}
 
-	.link-list {
-		display: grid;
-		gap: 1rem;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	@media (min-width: 600px) {
+		.link-list {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 
 	.cap [href="/your-party"] {

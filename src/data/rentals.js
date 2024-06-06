@@ -240,30 +240,21 @@ export const interactive = [
 
 export const extras = [
 	{
-		img: '/src/images/rentals/generator.png',
-		title: 'Generator',
-		description:
-			'For outdoor parties that are set up far away from electrical outlets.',
+		img: '/src/images/rentals/face painting.webp',
+		title: 'Face Painting',
+		description: 'Great for all ages.',
+	},
+	{
+		img: '/src/images/rentals/super soaker.png',
+		title: '16 Super Soakers',
+		description: 'We bring 16 Super Soakers and lead battles up to 8 vs. 8!',
+		price: '25',
 	},
 	{
 		img: '/src/images/rentals/cotton candy.png',
 		title: 'Cotton Candy Machine',
 		description:
 			'Bring the carnival to the party with the cotton candy machine.',
-		price: '100',
-	},
-	{
-		img: '/src/images/rentals/sno cone.png',
-		title: 'Sno-Cone Machine',
-		description:
-			'This industrial sno-cone machine comes with sno-cone cups and 2 kid flavors.',
-		price: '100',
-	},
-	{
-		img: '/src/images/rentals/popcorn.png',
-		title: 'Popcorn Machine',
-		description:
-			'Perfect for all occasions and includes bags, seasoning, kernels and popping oil.',
 		price: '100',
 	},
 	{
@@ -280,18 +271,27 @@ export const extras = [
 		price: '150',
 	},
 	{
-		img: '/src/images/rentals/super soaker.png',
-		title: '16 Super Soakers',
-		description: 'We bring 16 Super Soakers and lead battles up to 8 vs. 8!',
-		price: '25',
+		img: '/src/images/rentals/popcorn.png',
+		title: 'Popcorn Machine',
+		description:
+			'Perfect for all occasions and includes bags, seasoning, kernels and popping oil.',
+		price: '100',
 	},
 	{
-		img: '/src/images/rentals/face painting.webp',
-		title: 'Face Painting',
-		description: 'Great for all ages.',
+		img: '/src/images/rentals/sno cone.png',
+		title: 'Sno-Cone Machine',
+		description:
+			'This industrial sno-cone machine comes with sno-cone cups and 2 kid flavors.',
+		price: '100',
+	},
+	{
+		img: '/src/images/rentals/generator.png',
+		title: 'Generator',
+		description:
+			'For outdoor parties that are set up far away from electrical outlets.',
 	},
 	{
 		img: '/src/images/rentals/porta potty.png',
 		title: 'Porta Potty',
 	},
-].sort(({ title: a }, { title: b }) => a > b || -(a < b))
+]
