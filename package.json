@@ -2,7 +2,7 @@
 	"name": "bernadette-atuahene",
 	"type": "module",
 	"dependencies": {
-		"cuirk": "^0.0.69"
+		"cuirk": "^0.0.71"
 	},
 	"scripts": {
 		"dev": "cuirk dev",
