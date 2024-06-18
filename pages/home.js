@@ -7,6 +7,16 @@ import {
 import { packages } from '../src/data/rentals.js'
 import reviews from '../src/data/reviews.js'
 
+export const meta = {
+	scripts: [
+		{
+			src: 'https://unpkg.com/cuick-dev/components/carousel.js',
+			type: 'module',
+			defer: true,
+		},
+	],
+}
+
 export const body = md`
 # Make Your Next Party Magical
 
@@ -20,33 +30,11 @@ ${loop(packages, packageCard)}
 
 ## Reviews
 
-<snappy-carousel>
+<c-carousel responsive="0: 1">
 	${loop(reviews, ({ review }) => html`<p>${review}</p>`)}
-</snappy-carousel>
+</c-carousel>
 
 ## Contact Us
 
 ${contactForm()}
-
-<style>
-	snappy-carousel {
-		--desktop: 100%;
-		--gap: .5rem;
-		--tablet: 100%;
-	}
-
-	snappy-carousel::part(indicators),
-	snappy-carousel::part(prev),
-	snappy-carousel::part(next) {
-		color: var(--c-primary);
-	}
-
-	snappy-carousel p {
-		margin: 0;
-	}
-</style>
-
-<script type="module" defer>
-	import "//unpkg.com/@snappywc/carousel";
-</script>
 `
