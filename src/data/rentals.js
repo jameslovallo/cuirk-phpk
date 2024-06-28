@@ -1,4 +1,6 @@
-import { html } from 'cuirk'
+export const html = (strings, ...values) => {
+	return strings.map((string, i) => string.trim() + (values[i] || '')).join('')
+}
 
 export const bouncers = [
 	{
