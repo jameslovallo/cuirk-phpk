@@ -37,4 +37,22 @@ ${loop(packages, packageCard)}
 ## Contact Us
 
 ${contactForm()}
+
+<style>
+	c-carousel {
+		position: relative;
+	}
+	c-carousel::part(controls) {
+		justify-content: end;
+		position: absolute;
+		right: 0;
+		top: -3.5rem;
+	}
+	c-carousel::part(indicators) {
+		display: none;
+	}
+	c-carousel p {
+		margin: 0;
+	}
+</style>
 `

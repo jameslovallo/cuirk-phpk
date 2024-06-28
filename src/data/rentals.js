@@ -1,62 +1,4 @@
-const html = (v) => v
-
-export const packages = [
-	{
-		title: 'Gold Bear',
-		id: 'gold',
-		img: '/src/images/home/bear.svg',
-		description: html`
-			<h4>Your Choice of Bounce House</h4>
-			<p><small>(Excluding Rival Arena)</small></p>
-			<h4>Pick 1</h4>
-			<ul>
-				<li>Professional Face Painter</li>
-				<li>Professional Hair Stylist</li>
-			</ul>
-			<h4>Pick 2</h4>
-			<ul>
-				<li>Popcorn Machine</li>
-				<li>Sno-Cone Machine</li>
-				<li>Cotton Candy Maker</li>
-			</ul>
-			<h4>Summer Special: Super Soakers!</h4>
-			<p><small>Upon Request/Based on Availability</small></p>
-		`,
-	},
-	{
-		title: 'Summer Special',
-		id: 'silver',
-		price: 499.99,
-		img: '/src/images/home/bear.svg',
-		description: html`
-			<h4>Your Choice of Bounce House</h4>
-			<p>
-				<small>
-					(Excluding Blue Wave Water Slide, Double Lane Slide, Giant Slide,
-					Rival Arena, Wet Jump & Slide Bounce House and Young & Wild Combo)
-				</small>
-			</p>
-			<h4>Equipment</h4>
-			<ul>
-				<li>Popcorn Machine</li>
-				<li>Sno-Cone Machine</li>
-			</ul>
-		`,
-	},
-	{
-		title: 'Twister with a Twist',
-		id: 'silver twister',
-		price: 399.99,
-		img: '/src/images/home/twister.png',
-		description: html`
-			<h4>Features</h4>
-			<ul>
-				<li>Inflatable Twister Board</li>
-				<li>Margarita Machine</li>
-			</ul>
-		`,
-	},
-]
+import { html } from 'cuirk'
 
 export const bouncers = [
 	{
@@ -298,5 +240,75 @@ export const extras = [
 	{
 		img: '/src/images/rentals/porta potty.png',
 		title: 'Porta Potty',
+	},
+]
+
+export const packageFeature = (extra) => {
+	extra = extras.find(({ title }) => title === extra)
+	return html`
+		<li>
+			<img src="${extra.img}" />
+			<p>${extra.title}</p>
+		</li>
+	`
+}
+
+export const packages = [
+	{
+		title: 'Gold Bear',
+		id: 'gold',
+		img: '/src/images/home/bear.svg',
+		description: html`
+			<h4>Your Choice of Bounce House</h4>
+			<p><small>(Excluding Rival Arena)</small></p>
+			<h4>Services</h4>
+			<ul class="grid">
+				${packageFeature('Face Painting')}
+			</ul>
+			<h4>Equipment</h4>
+			<ul class="grid">
+				${packageFeature('Popcorn Machine')}
+				${packageFeature('Sno-Cone Machine')}
+				${packageFeature('Cotton Candy Machine')}
+			</ul>
+			<h4>Summer Special</h4>
+			<p><small>Upon Request/Based on Availability</small></p>
+			<ul class="grid">
+				${packageFeature('16 Super Soakers')}
+			</ul>
+		`,
+	},
+	{
+		title: 'Summer Special',
+		id: 'silver',
+		price: 499.99,
+		img: '/src/images/home/bear.svg',
+		description: html`
+			<h4>Your Choice of Bounce House</h4>
+			<p>
+				<small>
+					(Excluding Blue Wave Water Slide, Double Lane Slide, Giant Slide,
+					Rival Arena, Wet Jump & Slide Bounce House and Young & Wild Combo)
+				</small>
+			</p>
+			<h4>Equipment</h4>
+			<ul class="grid">
+				${packageFeature('Popcorn Machine')}
+				${packageFeature('Sno-Cone Machine')}
+			</ul>
+		`,
+	},
+	{
+		title: 'Twister with a Twist',
+		id: 'silver twister',
+		price: 399.99,
+		img: '/src/images/home/twister.png',
+		description: html`
+			<h4>Features</h4>
+			<ul>
+				<li>Inflatable Twister Board</li>
+				<li>Margarita Machine</li>
+			</ul>
+		`,
 	},
 ]

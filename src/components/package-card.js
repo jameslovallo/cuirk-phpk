@@ -57,6 +57,33 @@ packageCard.style = scss`
 			> p {
 				opacity: 0.75;
 			}
+
+			ul.grid {
+				display: grid;
+				gap: 0.5rem;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				list-style: none;
+				margin: 1rem 0;
+				padding: 0;
+
+				> li {
+					align-items: center;
+					display: flex;
+					gap: 0.75rem;
+
+					> img {
+						aspect-ratio: 4/3;
+						border-radius: 0.25rem;
+						object-fit: contain;
+						width: 75px;
+					}
+
+					> p {
+						line-height: 1.25;
+						margin: 0;
+					}
+				}
+			}
 		}
 
 		&.gold {
