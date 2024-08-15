@@ -3,46 +3,44 @@ import rentalAgreement from '../data/rental-agreement.js'
 import { accordion, button, grid, icon } from './index.js'
 
 export const bookingForm = () => html`
-	<form method="POST" netlify netlify-honeypot="bot-field" class="booking-form">
-		<p hidden>
-			<label>
-				Don’t fill this out if you’re human: <input name="bot-field" />
-			</label>
-		</p>
-		<textarea name="rentals" hidden></textarea>
+	<form class="booking-form">
+		<label>
+			Don’t fill this out if you’re human: <input name="occupation" />
+		</label>
+		<textarea name="Rentals" hidden></textarea>
 		<h2>Contact Information</h2>
 		${grid({
 			children: [
 				html`
 					<label>
 						<span>Name<sup></sup></span>
-						<input type="text" name="name" required />
+						<input type="text" name="Name" required />
 					</label>
 				`,
 				html`
 					<label>
 						<span>Phone Number<sup></sup></span>
-						<input type="tel" name="phone" required />
+						<input type="tel" name="Phone Number" required />
 					</label>
 				`,
 			],
 		})}
 		<label>
 			<span>Email Address<sup></sup></span>
-			<input type="email" name="email" required />
+			<input type="email" name="Email Address" required />
 		</label>
 		<h2>Booking Information</h2>
 		<label>
 			<span>Event Date<sup></sup></span>
-			<input type="date" name="date" required />
+			<input type="date" name="Date" required />
 		</label>
 		<label>
 			<span>Event Address<sup></sup></span>
-			<input name="address" required />
+			<input name="Address" required />
 		</label>
 		<label>
 			<span>Questions or Special Requests<sup></sup></span>
-			<textarea name="requests" required></textarea>
+			<textarea name="Requests" required></textarea>
 		</label>
 		<h2>Rental Agreement</h2>
 		<p>
@@ -62,12 +60,33 @@ export const bookingForm = () => html`
 	</form>
 `
 
+bookingForm.init = () => {
+	const bookingFormElement = document.querySelector('.booking-form')
+	if (bookingFormElement) {
+		import('/src/api.js').then(({ write }) => {
+			bookingFormElement.addEventListener('submit', (e) => {
+				e.preventDefault()
+				const formData = new FormData(bookingFormElement)
+				const fields = Object.fromEntries(formData)
+				if (!fields.occupation) {
+					delete fields.occupation
+					write('Booking', fields)
+				}
+			})
+		})
+	}
+}
+
 bookingForm.style = scss`
 	form {
 		label {
 			display: grid;
 			gap: 0.5rem;
 			margin-bottom: 1.5rem;
+
+			&:has([name="occupation"]) {
+				display: none;
+			}
 
 			&:has([type=checkbox]) {
 				align-items: center;

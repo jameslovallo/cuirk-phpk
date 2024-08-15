@@ -26,7 +26,7 @@ rentalList.init = () => {
 
 	if (rentalList) {
 		const rentalEstimate = document.querySelector('.rental-estimate')
-		const textarea = document.querySelector('textarea[name="rentals"]')
+		const textarea = document.querySelector('textarea[name="Rentals"]')
 		const removeButton = document.querySelector('#removeButton').innerHTML
 
 		const renderRentalList = () => {
@@ -73,7 +73,9 @@ rentalList.init = () => {
 					items.forEach((item) => {
 						const { title, price } = item.dataset
 
-						textarea.value += `${title}: ${price}\n`
+						textarea.value += `- ${title}: ${
+							price === 'undefined' ? 'Call for Pricing' : '$' + price
+						}\n`
 
 						if (price !== 'undefined' && typeof estimate === 'number') {
 							estimate += Number(price)

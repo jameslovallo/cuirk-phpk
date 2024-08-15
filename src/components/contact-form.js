@@ -2,35 +2,33 @@ import { html, scss } from 'cuirk'
 import { button, grid, icon } from './index.js'
 
 export const contactForm = () => html`
-	<form method="POST" netlify netlify-honeypot="bot-field" class="contact-form">
-		<p hidden>
-			<label>
-				Don’t fill this out if you’re human: <input name="bot-field" />
-			</label>
-		</p>
+	<form class="contact-form">
+		<label>
+			Don’t fill this out if you’re human: <input name="occupation" />
+		</label>
 		${grid({
 			children: [
 				html`
 					<label>
 						<span>Name<sup></sup></span>
-						<input type="text" name="name" required />
+						<input type="text" name="Name" required />
 					</label>
 				`,
 				html`
 					<label>
 						<span>Phone Number<sup></sup></span>
-						<input type="tel" name="phone" required />
+						<input type="tel" name="Phone Number" required />
 					</label>
 				`,
 			],
 		})}
 		<label>
 			<span>Email Address<sup></sup></span>
-			<input type="email" name="email" required />
+			<input type="email" name="Email Address" required />
 		</label>
 		<label>
 			<span>Your Message<sup></sup></span>
-			<textarea name="message" required></textarea>
+			<textarea name="Message" required></textarea>
 		</label>
 		${button({
 			children: icon({ name: 'Send' }) + 'Submit',
@@ -40,6 +38,23 @@ export const contactForm = () => html`
 	</form>
 `
 
+contactForm.init = () => {
+	const contactFormElement = document.querySelector('.contact-form')
+	if (contactFormElement) {
+		import('/src/api.js').then(({ write }) => {
+			contactFormElement.addEventListener('submit', (e) => {
+				e.preventDefault()
+				const formData = new FormData(contactFormElement)
+				const fields = Object.fromEntries(formData)
+				if (!fields.occupation) {
+					delete fields.occupation
+					write('Contact', fields)
+				}
+			})
+		})
+	}
+}
+
 contactForm.style = scss`
 	.contact-form {
 		display: grid;
@@ -48,6 +63,10 @@ contactForm.style = scss`
 		label {
 			display: grid;
 			gap: 0.5rem;
+
+			&:has([name="occupation"]) {
+				display: none;
+			}
 
 			sup {
 				color: red;
