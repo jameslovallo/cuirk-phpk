@@ -7,8 +7,8 @@ export default [
 	},
 	{
 		title: 'Email',
-		href: 'mailto:purpleheartpartykids@gmail.com',
-		description: 'purpleheartpartykids@gmail.com',
+		href: 'mailto:bouncehousekingsdetroit@gmail.com',
+		description: 'bouncehousekingsdetroit@gmail.com',
 		icon: 'Email',
 	},
 ]
