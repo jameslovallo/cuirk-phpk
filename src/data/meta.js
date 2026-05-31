@@ -2,7 +2,7 @@ export default {
 	title: "Bounce House Kings",
 	description: "Make your next party magical.",
 	url: "https://bounce-house-kings.com",
-	image: "/src/images/home/1.jpg",
+	image: "/src/images/social.jpg",
 	links: [
 		{
 			rel: "icon",
