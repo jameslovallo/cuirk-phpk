@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Bangers';
+    src: url('subset-Bangers-Regular.woff2') format('woff2'),
+        url('subset-Bangers-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

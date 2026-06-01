@@ -10,6 +10,15 @@
 	font-family: sans-serif;
 }
 
+@font-face {
+    font-family: 'Bangers';
+    src: url('/src/font/subset-Bangers-Regular.woff2') format('woff2'),
+        url('/src/font/subset-Bangers-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root,
 body {
 	height: 100%;
@@ -33,6 +42,10 @@ main {
 	padding: 1rem;
 }
 
+#logo {
+	border-radius: 1.5rem;
+}
+
 h1,
 h2,
 h3,
@@ -44,18 +57,27 @@ h6 {
 	scroll-margin-top: 5rem;
 }
 
+h1, h2, h3 {
+	font-family: Bangers;
+	font-weight: 100;
+}
+
 h1 {
-	font-size: 2.5em;
+	font-size: 3rem;
 	margin-top: 1em;
 }
 
 h2 {
-	font-size: 1.75rem;
+	font-size: 2.25rem;
 	margin-top: 3rem;
 }
 
 h3 {
-	font-size: 1.25em;
+	font-size: 1.5rem;
+}
+
+h4 {
+	font-size: 1.25rem;
 }
 
 p {

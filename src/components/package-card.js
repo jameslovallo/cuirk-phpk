@@ -60,8 +60,8 @@ packageCard.style = scss`
 
 			ul.grid {
 				display: grid;
-				gap: 0.5rem;
-				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 1rem;
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 				list-style: none;
 				margin: 1rem 0;
 				padding: 0;
@@ -75,7 +75,7 @@ packageCard.style = scss`
 						aspect-ratio: 4/3;
 						border-radius: 0.25rem;
 						object-fit: contain;
-						width: 75px;
+						width: 100px;
 					}
 
 					> p {

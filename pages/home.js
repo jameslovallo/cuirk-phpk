@@ -18,6 +18,8 @@ export const meta = {
 };
 
 export const body = md`
+<img id="logo" src="/src/images/social.jpg">
+
 # Make Your Next Party Magical
 
 Bounce House Kings provides bounce house and party equipment rentals in the greater Metro Detroit area. We take great pride in our service. We believe that the way you do anything is the way you do everything. Book with Bounce House Kings so we can help make your next party experience magical!
